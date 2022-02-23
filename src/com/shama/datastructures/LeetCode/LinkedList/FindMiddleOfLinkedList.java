@@ -1,6 +1,6 @@
-package com.shama.datastructures;
+package com.shama.datastructures.LeetCode.LinkedList;
 
-public class ReverseLinkedList {
+public class FindMiddleOfLinkedList {
 
     private Node head;
 
@@ -22,17 +22,18 @@ public class ReverseLinkedList {
         }
     }
 
-    private Node reverse(Node head) {
-        Node current = head;
-        Node previous = null;
-        Node next = null;
-        while (current != null){
-            next = current.next;
-            current.next = previous;
-            previous = current;
-            current = next;
+    private Node findMiddle(Node head){
+        if(head == null){
+            return null;
         }
-        return previous;
+        Node slowPointer = head;
+        Node fastPointer = head;
+        while(fastPointer != null && fastPointer.next != null){
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
+        }
+
+        return slowPointer;
     }
 
     private void insertNodeLast(int value){
@@ -49,17 +50,16 @@ public class ReverseLinkedList {
     }
 
     public static void main(String[] args) {
-        ReverseLinkedList list = new ReverseLinkedList();
+        FindMiddleOfLinkedList list = new FindMiddleOfLinkedList();
         list.insertNodeLast(6);
         list.insertNodeLast(34);
         list.insertNodeLast(3);
         list.insertNodeLast(56);
+//        list.insertNodeLast(90);
+
 
         list.printNodes(list.head);
-
-        Node reveredNode = list.reverse(list.head);
-        System.out.println("After reversing");
-        list.printNodes(reveredNode);
-
+        Node middleNode = list.findMiddle(list.head);
+        System.out.println("The middle of list is : " + middleNode.data);
     }
 }

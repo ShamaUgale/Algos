@@ -128,6 +128,5 @@ class CircularLinkedList {
         cll.display();
         cll.removeLast();
         cll.display();
-
     }
 }
