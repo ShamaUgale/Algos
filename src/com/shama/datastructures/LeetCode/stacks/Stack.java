@@ -1,8 +1,9 @@
 package com.shama.datastructures.LeetCode.stacks;
 
 import java.util.EmptyStackException;
+// implement stack using linked list
 
-public class Stack {
+public class Stack<I extends Number> {
 
     private ListNode top;
     private int length;
@@ -55,7 +56,7 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        Stack<Number> stack = new Stack<Number>();
         stack.push(10);
         stack.push(15);
         stack.push(20);
