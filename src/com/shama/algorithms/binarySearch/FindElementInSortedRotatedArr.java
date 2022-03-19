@@ -1,4 +1,4 @@
-package com.shama.datastructures.LeetCode.arrays;
+package com.shama.algorithms.binarySearch;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -7,6 +7,7 @@ public class FindElementInSortedRotatedArr {
 
     public static void main(String[] args) {
         int[] arr = {11,23,34,56,78, 8,9,10};
+        int searchKey = 23;
 
         int midIndex = findMinElemIndex(arr);
         int firstHalf = Arrays.binarySearch(arr, 0, midIndex-1, 23);

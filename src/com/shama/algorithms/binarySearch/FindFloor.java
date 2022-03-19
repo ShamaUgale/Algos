@@ -1,4 +1,4 @@
-package com.shama.datastructures.LeetCode.arrays;
+package com.shama.algorithms.binarySearch;
 
 
 /*

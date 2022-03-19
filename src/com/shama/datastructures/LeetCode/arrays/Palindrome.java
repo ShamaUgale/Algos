@@ -16,8 +16,28 @@ public class Palindrome {
         return true;
     }
 
+    public static boolean isPalindrome(int num){
+        int rev =0;
+        int orignalNum = num;
+        while(num != 0){
+            rev = rev*10 + num%10;
+            num = num/10;
+        }
+
+        if(orignalNum == rev){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     public static void main(String[] args) {
         String s = "madamm";
-        System.out.println("Is palindrome: " + isPalindrome(s));
+//        System.out.println("Is palindrome: " + isPalindrome(s));
+
+        int x = 01;
+        System.out.println("Is palindrome: " + isPalindrome(x));
+
     }
 }
