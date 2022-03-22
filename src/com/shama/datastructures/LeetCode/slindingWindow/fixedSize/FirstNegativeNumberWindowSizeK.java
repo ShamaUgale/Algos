@@ -1,4 +1,4 @@
-package com.shama.datastructures.LeetCode.slindingWindow;
+package com.shama.datastructures.LeetCode.slindingWindow.fixedSize;
 
 import java.util.ArrayList;
 
