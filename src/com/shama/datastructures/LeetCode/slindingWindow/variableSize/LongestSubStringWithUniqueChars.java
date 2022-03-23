@@ -18,11 +18,11 @@ public class LongestSubStringWithUniqueChars {
         HashSet<Character> hm = new HashSet<>();
         int i=0;
         int j=0;
-        int maxL = -1;
+        int maxL = Integer.MIN_VALUE;
         while(j<s.length()){
             if(!hm.contains(s.charAt(j))){
                 hm.add(s.charAt(j));
-                maxL = (j-i+1) > maxL ? (j-i+1) : maxL;
+                maxL = Math.max(maxL, j-i+1);
                 j++;
             }
             else{

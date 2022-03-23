@@ -10,7 +10,7 @@ public class LongestSubstringWithKUniqueChars {
         System.out.println("The longest substring 2 unique chars : " + longestSubStringWithKUniqueChar("aabacbebebe", 2));
     }
 
-        public static int longestkSubstr(String s, int k) {
+    public static int longestkSubstr(String s, int k) {
             HashMap<Character,Integer> charMap=new HashMap<>();
             int i =0;
             int j =0;
