@@ -1,4 +1,4 @@
-package com.shama.algorithms;
+package com.shama.algorithms.sorting;
 
 public class MergeSort {
 

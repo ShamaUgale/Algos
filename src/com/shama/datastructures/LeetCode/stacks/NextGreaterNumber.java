@@ -72,8 +72,7 @@ public class NextGreaterNumber {
                 }
                 if(stack.isEmpty()){
                     result[i]= -1;
-                }
-                else{
+                }else{
                     result[i]=stack.peek();
                 }
             }
