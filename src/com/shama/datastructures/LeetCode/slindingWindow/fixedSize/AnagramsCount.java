@@ -16,12 +16,10 @@ public class AnagramsCount {
             List<Integer> result = new ArrayList<>();
             HashMap<Character, Integer> anagramMap = new HashMap<>();
 
-            //put all elements of pttrn p in map
+            //put all elements of pattern p in map
             for (int i = 0; i < p.length(); i++) {
-                if (anagramMap.containsKey(p.charAt(i)))
-                    anagramMap.put(p.charAt(i), anagramMap.get(p.charAt(i)) + 1);
-                else
-                    anagramMap.put(p.charAt(i), 1);
+                char current_char = p.charAt(i);
+                anagramMap.put(current_char, anagramMap.getOrDefault(current_char, 0)+1);
             }
             int count = anagramMap.size();
             int i = 0, j = 0;
