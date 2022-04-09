@@ -17,7 +17,7 @@ public class FindMissingAndDupNum {
             int value = arr[i];
             int correctIndexToBe = value - 1;
             if( value != (i+1)) {
-                if(arr[i] == arr[correctIndexToBe]){   // in case of duplicate value
+                if(value == arr[correctIndexToBe]){   // in case of duplicate value
                     i++;      // just increase 'i' forward
                     continue;
                 }
