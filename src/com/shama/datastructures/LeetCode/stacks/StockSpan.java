@@ -11,7 +11,7 @@ then the span values for corresponding 7 days are {1, 1, 1, 2, 1, 4, 6}
  */
 public class StockSpan {
 
-    // this prob is deduced to greter number to left
+    // this prob is deduced to greater number to left
 
     // we will keep track on the index
     public static void main(String[] args) {

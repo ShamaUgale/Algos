@@ -12,42 +12,42 @@ public class AnagramsCount {
         System.out.println("No of anagrams in the string '" + str + "' is : " + findAnagrams(str, pattern).size());
 
     }
-    public static List<Integer> findAnagrams(String s, String p) {
+    public static List<Integer> findAnagrams(String str, String pattern) {
             List<Integer> result = new ArrayList<>();
             HashMap<Character, Integer> anagramMap = new HashMap<>();
 
-            //put all elements of pattern p in map
-            for (int i = 0; i < p.length(); i++) {
-                char current_char = p.charAt(i);
+            //put all elements of pattern  in map
+            for (int i = 0; i < pattern.length(); i++) {
+                char current_char = pattern.charAt(i);
                 anagramMap.put(current_char, anagramMap.getOrDefault(current_char, 0)+1);
             }
             int count = anagramMap.size();
-            int i = 0, j = 0;
-            while (j < s.length()) {
+            int start = 0, end = 0;
+            while (end < str.length()) {
                 //calculations
-                if (anagramMap.containsKey(s.charAt(j))) {
-                    anagramMap.put(s.charAt(j), anagramMap.get(s.charAt(j)) - 1);
-                    if (anagramMap.get(s.charAt(j)) == 0) {
+                if (anagramMap.containsKey(str.charAt(end))) {
+                    anagramMap.put(str.charAt(end), anagramMap.get(str.charAt(end)) - 1);
+                    if (anagramMap.get(str.charAt(end)) == 0) {
                         count--;
                     }
                 }
                 //window size less than k
-                if (j - i + 1 < p.length())
-                    j++;
+                if (end - start + 1 < pattern.length())
+                    end++;
 
-                else if (j - i + 1 == p.length()) {
+                else if (end - start + 1 == pattern.length()) {
                     //result calculate
                     if (count == 0) {
-                        result.add(i);
-                        //remove result of i before sliding
+                        result.add(start);
+                        //remove result of start before sliding
                     }
-                    if (anagramMap.containsKey(s.charAt(i))) {
-                        anagramMap.put(s.charAt(i), anagramMap.get(s.charAt(i)) + 1);
-                        if (anagramMap.get(s.charAt(i)) == 1)
+                    if (anagramMap.containsKey(str.charAt(start))) {
+                        anagramMap.put(str.charAt(start), anagramMap.get(str.charAt(start)) + 1);
+                        if (anagramMap.get(str.charAt(start)) == 1)
                             count++;
                     }
-                    i++;
-                    j++;
+                    start++;
+                    end++;
                 }
             }
             return result;

@@ -1,45 +1,42 @@
 package com.shama.datastructures.LeetCode.stacks;
 
+import java.util.Stack;
+
 public class StockSpan_AdityaVerma {
 
+    // 1. get the left smaller elem's index
+    // 2. then get the difference between the elem ind and smaller_to_left element index
+
     public static void main(String[] args) {
+        int[] stocks = {100,80,60, 70, 60, 75, 85};
 
+        int[] result = findNextGreaterNumberToLeft(stocks, stocks.length);
+        for(Integer elem : result){
+            System.out.print(elem + " ");
+        }
     }
-//    public static int[] calculateSpan(int arr[], int n)
-//    {
-//        Stack<Pair> s = new Stack<Pair>();
-//        int[] res = new int[n];
-//        int k=n-1;
-//        for(int i=0;i<n;i++){
-//            if(s.size()==0)
-//                res[i] = -1;
-//            else if(s.size()>0 && s.peek().first>arr[i])
-//                res[i] = s.peek().second;
-//            else if(s.size()>0 && s.peek().first<=arr[i]){
-//
-//                while(s.size()>0 && s.peek().first<=arr[i]){
-//                    s.pop();
-//                }
-//
-//                if(s.size() == 0){
-//                    res[i] = -1;
-//                }else{
-//                    res[i] = s.peek().second;
-//                }
-//
-//
-//            }
-//
-//            s.push(new Pair(arr[i],i));
-//        }
-//
-//        for(int i=0;i<n;i++) {
-//            res[i] = i-res[i];
-//        }
-//
-//        return res;
-//
-//
-//    }
 
+    private static int[] findNextGreaterNumberToLeft(int[] arr, int n) {
+        int[] result = new int[n];
+        java.util.Stack<Integer> stack = new Stack<>();
+
+        for(int i=0; i<n; i++){
+            if(stack.empty()){
+                result[i] =(1+i);
+            }else if(arr[stack.peek()] > arr[i]){
+                result[i] = i-stack.peek();
+            }else if(arr[stack.peek()]<=arr[i]){
+                while(!stack.empty() && arr[stack.peek()]<=arr[i]){
+                    stack.pop();
+                }
+                if(stack.empty()){
+                    result[i] = i+1;
+                }
+                else
+                   result[i] = i-stack.peek();
+            }
+            stack.push(i);
+        }
+        return result;
+    }
 }
