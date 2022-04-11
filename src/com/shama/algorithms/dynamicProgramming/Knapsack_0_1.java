@@ -16,7 +16,6 @@ public class Knapsack_0_1 {
                 }
             }
         }
-
         return dp[w][values.length];
     }
 
@@ -122,8 +121,8 @@ public class Knapsack_0_1 {
 
         // **********************************************************************************************************************************************
 
-        int set[] = { 3, 34, 4, 12, 5, 2 };
-        int sum = 9;
+        int set[] = { 2,3,7,8,10 };
+        int sum = 20;
         int n = set.length;
         if (isSubsetSum(set, n, sum) == true)
             System.out.println("Found a subset"

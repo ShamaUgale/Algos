@@ -32,7 +32,7 @@ class ShortestSuperSeq {
         }
 
         // Following code is used to print
-        // shortest supersequence dp[m][n] s
+        // shortest super sequence dp[m][n] s
         // tores the length of the shortest
         // supersequence of X and Y
 

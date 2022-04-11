@@ -11,8 +11,6 @@ public class RainWaterTrapping {
     4. now the water of is min of maxOnLeft[i] and maxOnRight[i]
     5. the are trapped for a building is the water on top can be the water minus the height of building
     6. the area trapping water is the sum of all the trapped water for each building
-
-
  */
 
 
