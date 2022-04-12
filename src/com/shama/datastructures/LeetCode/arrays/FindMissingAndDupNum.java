@@ -8,6 +8,7 @@ public class FindMissingAndDupNum {
     public static void main(String[] args) {
         int[] arr = {1,3,1,5,1,5};
         swapSort(arr);
+        usingNegative();
     }
 
     public static void swapSort(int[] arr) {
@@ -38,5 +39,19 @@ public class FindMissingAndDupNum {
         int temp = arr[i];
         arr[i] = arr[correctIndexToBe];
         arr[correctIndexToBe] = temp;
+    }
+
+    private static void usingNegative(){
+        int[] nums = {1,3,1,5,1,5};
+        for(int i=0; i< nums.length; i++){
+
+            if(nums[Math.abs(nums[i])-1] >= 0){
+                nums[Math.abs(nums[i])-1] = -nums[Math.abs(nums[i])-1];
+            }else{
+                System.out.println("Missing : "+nums[i]);
+                System.out.println( "Duplicate" +(i+1));
+            }
+        }
+
     }
 }

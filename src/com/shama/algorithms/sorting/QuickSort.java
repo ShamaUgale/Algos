@@ -17,7 +17,7 @@ public class QuickSort {
         quickSort(arr, 0, arr.length-1);
     }
     private static void quickSort(int[] arr, int start, int end) {
-        // edge condition - to stop recurrsion from getting into infinite loop
+        // edge condition - to stop recursion from getting into infinite loop
         if(start >= end){
             return;
         }
