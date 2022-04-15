@@ -31,8 +31,10 @@ public class MaxInWindowSizeK {
                     }
                     q.add(nums[j]);
                 }
-                // now move j pointer
-                if(j - i + 1 < k) j++;
+                // now move j pointer until we reach the window size k
+                if(j - i + 1 < k)
+                    j++;
+
                     // if we hit the window size
                 else if(j - i + 1 == k){
                     // answer -> calculation;
