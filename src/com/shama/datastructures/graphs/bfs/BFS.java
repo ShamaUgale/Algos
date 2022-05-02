@@ -1,6 +1,6 @@
 package com.shama.datastructures.graphs.bfs;
 import java.util.*;
-class BSF {
+class BFS {
     public static ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
 
         ArrayList<Integer> bfs = new ArrayList<>();

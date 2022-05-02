@@ -58,11 +58,10 @@ public class CycleDetection {
                         return true;
                 }
             }
-
             return false;
         }
-        public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj)
-        {
+
+        public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
             boolean vis[] = new boolean[V];
             Arrays.fill(vis,false);
             int parent[] = new int[V];
@@ -72,7 +71,6 @@ public class CycleDetection {
                 if(vis[i]==false)
                     if(checkForCycle(adj, i,vis, parent))
                         return true;
-
             return false;
         }
     }
