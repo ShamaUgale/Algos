@@ -1,4 +1,4 @@
-package com.shama.datastructures.graphs;
+package com.shama.datastructures.graphs.dfs;
 import java.util.*;
 
 class DFS {
