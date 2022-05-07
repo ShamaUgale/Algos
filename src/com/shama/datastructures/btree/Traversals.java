@@ -120,7 +120,7 @@ public class Traversals {
         while (mq.size() > 0) {
             int count = mq.size();
             for (int i = 0; i < count; i++) {
-                node = q.remove();
+                node = mq.remove();
                 System.out.print(node.data + " ");
                 if (node.left != null) {
                     mq.add(node.left);
