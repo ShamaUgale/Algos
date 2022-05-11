@@ -15,11 +15,7 @@ class Node implements Comparator<Node> {
 
     @Override
     public int compare(Node node1, Node node2) {
-        if (node1.weight < node2.weight)
-            return -1;
-        if (node1.weight > node2.weight)
-            return 1;
-        return 0;
+        return node1.weight - node2.weight;
     }
 }
 
