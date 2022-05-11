@@ -10,6 +10,7 @@ class Pair {
         this.v = _v;
         this.weight = _w;
     }
+
     int getV() {
         return this.v;
     }
@@ -19,9 +20,16 @@ class Pair {
     }
 }
 
-// using BFS
+// using BFS and toposort
+/*
+The reason of using topo sort is simple,
+we save a lot of time by starting from the start point,
+instead of starting from any random point. Since we know via topo sort
+we get to know the starting point, hence it becomes optimal to use topo sort!
+
+ */
 class ShortestPathInDirectedAcyclicGraph {
-    void topologicalSortUtil(int node, Boolean visited[], Stack stack, ArrayList<ArrayList<Pair>> adj) {
+    void topologicalSortUtil(int node, boolean visited[], Stack stack, ArrayList<ArrayList<Pair>> adj) {
 
         visited[node] = true;
         for(Pair it: adj.get(node)) {
@@ -34,37 +42,34 @@ class ShortestPathInDirectedAcyclicGraph {
 
     void shortestPath(int s, ArrayList<ArrayList<Pair>> adj, int N) {
         Stack stack = new Stack();
-        int dist[] = new int[N];
+        int distance[] = new int[N];
 
-        Boolean visited[] = new Boolean[N];
-        for (int i = 0; i < N; i++)
-            visited[i] = false;
-
+        boolean visited[] = new boolean[N];
         for (int i = 0; i < N; i++)
             if (visited[i] == false)
                 topologicalSortUtil(i, visited, stack, adj);
 
         for (int i = 0; i < N; i++)
-            dist[i] = Integer.MAX_VALUE;
-        dist[s] = 0;
+            distance[i] = Integer.MAX_VALUE;
+        distance[s] = 0;
 
         while (stack.empty() == false) {
             int node = (int)stack.pop();
 
-            if (dist[node] != Integer.MAX_VALUE) {
-                for(Pair it: adj.get(node)) {
-                    if(dist[node] + it.getWeight() < dist[it.getV()]) {
-                        dist[it.getV()] = dist[node] + it.getWeight();
+            if (distance[node] != Integer.MAX_VALUE) {
+                for(Pair neighbour: adj.get(node)) {
+                    if(distance[node] + neighbour.getWeight() < distance[neighbour.getV()]) {
+                        distance[neighbour.getV()] = distance[node] + neighbour.getWeight();
                     }
                 }
             }
         }
 
         for (int i = 0; i < N; i++) {
-            if (dist[i] == Integer.MAX_VALUE)
+            if (distance[i] == Integer.MAX_VALUE)
                 System.out.print( "INF ");
             else
-                System.out.print( dist[i] + " ");
+                System.out.print( distance[i] + " ");
         }
     }
     public static void main(String args[]) {
