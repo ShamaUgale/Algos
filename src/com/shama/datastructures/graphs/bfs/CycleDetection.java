@@ -40,7 +40,7 @@ public class CycleDetection {
     }
     class Solution {
         static boolean checkForCycle(ArrayList<ArrayList<Integer>> adj, int s,
-                                     boolean vis[], int parent[]) {
+                                     boolean vis[]) {
             Queue<Node> q =  new LinkedList<>(); //BFS
             q.add(new Node(s, -1));
             vis[s] =true;
@@ -64,12 +64,9 @@ public class CycleDetection {
         public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
             boolean vis[] = new boolean[V];
             Arrays.fill(vis,false);
-            int parent[] = new int[V];
-            Arrays.fill(parent,-1);
-
             for(int i=0;i<V;i++)
                 if(vis[i]==false)
-                    if(checkForCycle(adj, i,vis, parent))
+                    if(checkForCycle(adj, i,vis))
                         return true;
             return false;
         }

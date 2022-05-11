@@ -27,7 +27,6 @@ class BFS {
 
         return bfs;
 
-        // Code here
     }
 
     static void printAns(ArrayList < Integer > ans) {
@@ -36,7 +35,6 @@ class BFS {
         }
     }
     public static void main(String args[]) {
-
         ArrayList < ArrayList < Integer >> adj = new ArrayList < > ();
         for (int i = 0; i < 5; i++) {
             adj.add(new ArrayList < > ());
@@ -53,8 +51,5 @@ class BFS {
 
         ArrayList < Integer > ans = bfsOfGraph(5, adj);
         printAns(ans);
-
-
-
     }
 }
