@@ -1,4 +1,4 @@
-package com.shama.datastructures.graphs.DijkstrasAlgorithm;
+package com.shama.algorithms.DijkstrasAlgorithm;
 
 import java.util.*;
 
@@ -20,28 +20,28 @@ class Node implements Comparator<Node> {
 }
 
 class ShortestPathInUndirectedGraph {
-    void shortestPath(int s, ArrayList<ArrayList<Node>> adj, int N) {
+    void shortestPath(int src, ArrayList<ArrayList<Node>> adj, int N) {
         int dist[] = new int[N];
 
         for(int i = 0;i<N;i++)
             dist[i] = Integer.MAX_VALUE;
 
-        dist[s] = 0;
+        dist[src] = 0;
 
         PriorityQueue<Node> pq = new PriorityQueue<Node>(N, new Node());
-        pq.add(new Node(s, 0));
+        pq.add(new Node(src, 0));
 
         while(pq.size() > 0) {
             Node node = pq.poll();
 
-            for(Node it: adj.get(node.getV())) {
-                if(dist[node.getV()] + it.getWeight() < dist[it.getV()]) {
-                    dist[it.getV()] = dist[node.getV()] + it.getWeight();
-                    pq.add(new Node(it.getV(), dist[it.getV()]));
+            for(Node neighbour: adj.get(node.getV())) {
+                if(dist[node.getV()] + neighbour.getWeight() < dist[neighbour.getV()]) {
+                    dist[neighbour.getV()] = dist[node.getV()] + neighbour.getWeight();
+                    pq.add(new Node(neighbour.getV(), dist[neighbour.getV()]));
                 }
             }
         }
-        System.out.println("The distances from source "+s+" are : ");
+        System.out.println("The distances from source "+src+" are : ");
         for (int i = 0; i < N; i++) {
             System.out.print( dist[i] + " ");
         }
