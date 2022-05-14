@@ -1,6 +1,6 @@
 package com.shama.datastructures.btree;
 
-public class bstpair {
+public class LargestBST {
     boolean isBST;
 
     int min;
@@ -22,10 +22,10 @@ public class bstpair {
 
 //****************IS BST*****************
 
-    public static bstpair isBST(Node node) {
+    public static LargestBST isBST(Node node) {
 
         if (node == null) {
-            bstpair bp = new bstpair();
+            LargestBST bp = new LargestBST();
             bp.isBST = true;
             bp.min = Integer.MAX_VALUE;
             bp.max = Integer.MIN_VALUE;
@@ -34,10 +34,10 @@ public class bstpair {
             return bp;
         }
 
-        bstpair lp = isBST(node.left);
-        bstpair rp = isBST(node.right);
+        LargestBST lp = isBST(node.left);
+        LargestBST rp = isBST(node.right);
 
-        bstpair mp = new bstpair();
+        LargestBST mp = new LargestBST();
 
         mp.isBST = lp.isBST && rp.isBST && (node.data >= lp.max && node.data <= rp.min);
         mp.min = Math.min(node.data, Math.min(lp.min, rp.min));

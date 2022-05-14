@@ -41,6 +41,7 @@ public class AnagramsCount {
                         result.add(start);
                         //remove result of start before sliding
                     }
+                    // watch video from 22 mins
                     if (anagramMap.containsKey(str.charAt(start))) {
                         anagramMap.put(str.charAt(start), anagramMap.get(str.charAt(start)) + 1);
                         if (anagramMap.get(str.charAt(start)) == 1)

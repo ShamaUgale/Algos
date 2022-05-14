@@ -4,7 +4,7 @@ import java.io.*;
 
 import java.util.*;
 
-public class IsBalancedTree {
+public class IsBalanceTree {
     public static class Node {
         int data;
         Node left;
