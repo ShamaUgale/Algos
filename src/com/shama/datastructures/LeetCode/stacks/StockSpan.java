@@ -16,7 +16,7 @@ public class StockSpan {
     // we will keep track on the index
     public static void main(String[] args) {
         int[] array =  {100, 80, 60, 70, 60, 75, 85};
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack();
         int[] result = new int[array.length];
 
         result[0] = 1;

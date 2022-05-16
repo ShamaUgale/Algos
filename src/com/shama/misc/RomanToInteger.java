@@ -26,7 +26,6 @@ public class RomanToInteger {
             }else{
                 result = result + val;
             }
-
         }
         return result;
     }
