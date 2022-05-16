@@ -7,7 +7,7 @@ public class MissingAndDuplicate1 {
         int i;
         System.out.println("****************************");
 
-        System.out.println("The repeating element is/are ");
+        System.out.println("The repeating/duplicate element is/are ");
 
         for (i = 0; i < size; i++) {
             int abs_val = Math.abs(arr[i]);
