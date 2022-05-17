@@ -15,11 +15,11 @@ public class LongestConsecutiveSubsequence {
             return 0;
         }
         int N = arr.length;
-        HashSet<Integer> hash = new HashSet<>();
+        HashSet<Integer> set = new HashSet<>();
         for(int i = 0;i<N;i++) {
-            hash.add(arr[i]);
+            set.add(arr[i]);
         }
-        TreeSet<Integer> tree = new TreeSet<>(hash);
+        TreeSet<Integer> tree = new TreeSet<>(set);
         Arrays.fill(arr,0);
         int k = 0;
         for(Integer a : tree) {
