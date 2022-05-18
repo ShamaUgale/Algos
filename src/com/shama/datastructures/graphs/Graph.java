@@ -33,7 +33,8 @@ public class Graph {
 
         while(!q.isEmpty()) {
             int cur = q.poll();
-            if(cur == destination) break;
+            if(cur == destination)
+                break;
 
             for(int neighbor: adj[cur]) {
                 if(!vis[neighbor]) {
