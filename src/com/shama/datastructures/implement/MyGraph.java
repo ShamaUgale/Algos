@@ -16,7 +16,7 @@ class MyGraph {
     // array to store all edges
     Edge[] edge;
 
-    Graph(int vertices, int edges) {
+    MyGraph(int vertices, int edges) {
         this.vertices = vertices;
         this.edges = edges;
 
@@ -35,7 +35,7 @@ class MyGraph {
         // create an object of Graph class
         int noVertices = 5;
         int noEdges = 8;
-        Graph g = new Graph(noVertices, noEdges);
+        MyGraph g = new MyGraph(noVertices, noEdges);
 
         // create graph
         g.edge[0].src = 1;   // edge 1---2
