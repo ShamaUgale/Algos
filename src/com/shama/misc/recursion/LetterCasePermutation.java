@@ -33,33 +33,33 @@ class LetterCasePermutation {
         System.out.println("Permuted string is : "+letterCasePermutation("3z4"));// [3z4, 3Z4]
 
     }
-    public static List<String> letterCasePermutation(String s) {
+    public static List<String> letterCasePermutation(String str) {
         List<String> list  = new LinkedList<>();
-        if(s == "")
+        if(str == "")
             return list;
 
-        String op = "";
-        helper( s, op, list);
+        String output = "";
+        helper( str, output, list);
         return list;
     }
-    private static void helper( String s, String op, List<String> list){
-        if(s.length() == 0){
-            list.add(op);
+    private static void helper( String str, String output, List<String> list){
+        if(str.length() == 0){
+            list.add(output);
             return;
         }
 
-        if(Character.isDigit(s.charAt(0))  ){
-            op += s.charAt(0);
-            s = s.substring(1);
-            helper(s, op, list);
+        if(Character.isDigit(str.charAt(0))){
+            output += str.charAt(0);
+            str = str.substring(1);
+            helper(str, output, list);
         }
         else{
-            String op1 = op, op2= op;
-            op1+= Character.toLowerCase(s.charAt(0));
-            op2+= Character.toUpperCase(s.charAt(0));
-            s = s.substring(1);
-            helper(s, op1, list);
-            helper(s, op2, list);
+            String op1 = output, op2= output;
+            op1+= Character.toLowerCase(str.charAt(0));
+            op2+= Character.toUpperCase(str.charAt(0));
+            str = str.substring(1);
+            helper(str, op1, list);
+            helper(str, op2, list);
         }
         return;
     }
