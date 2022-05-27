@@ -60,4 +60,3 @@ public class JosephusProblem {
         return solve(soldiers, k, index, ans);
     }
 }
-
