@@ -8,20 +8,20 @@ class BridgesRemove {
         vis[node] = true;
         tin[node] = low[node] = timer++;
 
-        for(Integer it: adj.get(node)) {
-            if(it == parent) {
+        for(Integer neighbour: adj.get(node)) {
+            if(neighbour == parent) {
                 continue;
             }
 
-            if(!vis[it]) {
-                dfs(it, node, vis, tin, low, adj, timer);
-                low[node] = Math.min(low[node], low[it]);
+            if(!vis[neighbour]) {
+                dfs(neighbour, node, vis, tin, low, adj, timer);
+                low[node] = Math.min(low[node], low[neighbour]);
 
-                if(low[it] > tin[node]) {
-                    System.out.println(it + " " +node);
+                if(low[neighbour] > tin[node]) {
+                    System.out.println(neighbour + " " +node);
                 }
             } else {
-                low[node] = Math.min(low[node], tin[it]);
+                low[node] = Math.min(low[node], tin[neighbour]);
             }
         }
     }
