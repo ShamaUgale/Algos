@@ -36,7 +36,9 @@ class Node implements Comparator<Node>{
 
 class Kruskals{
     private int findPar(int u, int parent[]) {
-        if(u==parent[u]) return u;
+        if(u==parent[u])
+            return u;
+
         return parent[u] = findPar(parent[u], parent);
     }
     private void union(int u, int v, int parent[], int rank[]) {
