@@ -115,6 +115,27 @@ public class Diameter {
         return mp;
     }
 
+    /////////////////////////////////////////////////  recursive solution /////////////////////////////////////////////////
+        public int diameterOfBinaryTree(Node root) {
+            int[] max = new int[1];
+            getMaxDepth(root, max);
+            return max[0];
+        }
+
+        public int getMaxDepth(Node node, int[] max) {
+            if (node == null) {
+                return 0;
+            }
+
+            int maxLeftDepth = getMaxDepth(node.left, max);
+            int maxRightDepth = getMaxDepth(node.right, max);
+
+            max[0] = Math.max(max[0], maxLeftDepth + maxRightDepth);
+
+            return 1 + Math.max(maxLeftDepth, maxRightDepth);
+        }
+    ///////////////////////////////////////////////// /////////////////////////////////////////////////
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
