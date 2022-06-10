@@ -17,7 +17,7 @@ public class NumberOfIslands {
             for (int c = 0; c < numberOfColumns; c++) {
                 if (grid[r][c] == '1') {
                     num_islands++;
-                    dfs(grid, r, c, numberOfRows, numberOfColumns);
+        void             dfs(grid, r, c, numberOfRows, numberOfColumns);
                 }
             }
         }
