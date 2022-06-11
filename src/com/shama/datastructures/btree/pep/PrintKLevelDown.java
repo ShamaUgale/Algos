@@ -1,9 +1,10 @@
-package com.shama.datastructures.btree;
+package com.shama.datastructures.btree.pep;
 
 import java.io.*;
+
 import java.util.*;
 
-public class PrintKEdgesAway {
+public class PrintKLevelDown {
     public static class Node {
         int data;
         Node left;
@@ -29,8 +30,10 @@ public class PrintKEdgesAway {
     public static Node construct(Integer[] arr) {
         Node root = new Node(arr[0], null, null);
         Pair rtp = new Pair(root, 1);
+
         Stack< Pair> st = new Stack< >();
         st.push(rtp);
+
         int idx = 0;
         while (st.size() > 0) {
             Pair top = st.peek();
@@ -43,6 +46,7 @@ public class PrintKEdgesAway {
                 } else {
                     top.node.left = null;
                 }
+
                 top.state++;
             } else if (top.state == 2) {
                 idx++;
@@ -53,6 +57,7 @@ public class PrintKEdgesAway {
                 } else {
                     top.node.right = null;
                 }
+
                 top.state++;
             } else {
                 st.pop();
@@ -66,71 +71,38 @@ public class PrintKEdgesAway {
         if (node == null) {
             return;
         }
+
         String str = "";
         str += node.left == null ? "." : node.left.data + "";
         str += " <- " + node.data + " -> ";
         str += node.right == null ? "." : node.right.data + "";
         System.out.println(str);
+
         display(node.left);
         display(node.right);
     }
 
-    // *******************PRINT K NODES FAR******************
-    public static void printKNodesFar(Node node, int data, int k) {
-         path = new ArrayList< Node>();
-         find(node, data); //1
-        for (int i = 0; i < path.size(); i++) { //2
-            printKLevelsDown(path.get(i), k - i, i == 0 ? null : path.get(i - 1)); //3
-        }
-
-    }
-
-    //**************** FIND FUNCTION ******************
-    static ArrayList< Node> path;
-    public static boolean find(Node node, int data) {
-        if (node == null)
-            return false;
-        if (node.data == data) {
-            path.add(node);
-            return true;
-        }
-        boolean filc = find(node.left, data);
-        if (filc) {
-            path.add(node);
-            return true;
-        }
-        boolean firc = find(node.right, data);
-        if (firc) {
-            path.add(node);
-            return true;
-        }
-        return false;
-    }
-    //****************PRINT K LEVELS DOWN****************
-    public static void printKLevelsDown(Node node, int k, Node blocker) {
-        if (node == null || k < 0 || node == blocker)
+    public static void printKLevelsDown(Node node, int k) {
+        if (node == null || k < 0) {
             return;
-        if (k == 0)
-            System.out.println(node.data);
-        printKLevelsDown(node.left, k - 1, blocker);
-        printKLevelsDown(node.right, k - 1, blocker);
-
-    }
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        Integer[] arr = new Integer[n];
-        String[] values = br.readLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            if (values[i].equals("n") == false) {
-                arr[i] = Integer.parseInt(values[i]);
-            } else {
-                arr[i] = null;
-            }
         }
-        int data = Integer.parseInt(br.readLine());
-        int k = Integer.parseInt(br.readLine());
-        Node root = construct(arr);
-        printKNodesFar(root, data, k);
+
+        if (k == 0) {
+            System.out.println(node.data);
+            return;
+        }
+
+        printKLevelsDown(node.left, k - 1);
+        printKLevelsDown(node.right, k - 1);
     }
+
+    public static void main(String[] args) throws Exception {
+        Integer[]arr = {50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
+
+        int k = 2;
+
+        Node root = construct(arr);
+        printKLevelsDown(root, k);
+    }
+
 }

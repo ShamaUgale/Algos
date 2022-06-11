@@ -1,10 +1,10 @@
-package com.shama.datastructures.btree;
+package com.shama.datastructures.btree.pep;
 
 import java.io.*;
 
 import java.util.*;
 
-public class PrintKLevelDown {
+public class IsBalanceTree {
     public static class Node {
         int data;
         Node left;
@@ -82,27 +82,46 @@ public class PrintKLevelDown {
         display(node.right);
     }
 
-    public static void printKLevelsDown(Node node, int k) {
-        if (node == null || k < 0) {
-            return;
+    public static class BalPair {
+        int ht;
+        boolean isBal;
+    }
+
+    static boolean isBal = true;
+    public static int isBalanced(Node node) {
+
+        if (node == null) {
+            return 0;
         }
 
-        if (k == 0) {
-            System.out.println(node.data);
-            return;
-        }
+        int lh = isBalanced(node.left);
+        int rh = isBalanced(node.right);
 
-        printKLevelsDown(node.left, k - 1);
-        printKLevelsDown(node.right, k - 1);
+        int gap = Math.abs(lh - rh);
+
+        if (gap > 1)
+        {
+            isBal = false;
+        }
+        int th = Math.max(lh, rh) + 1;
+        return th;
     }
 
     public static void main(String[] args) throws Exception {
-        Integer[]arr = {50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
-
-        int k = 2;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        Integer[] arr = new Integer[n];
+        String[] values = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            if (values[i].equals("n") == false) {
+                arr[i] = Integer.parseInt(values[i]);
+            } else {
+                arr[i] = null;
+            }
+        }
 
         Node root = construct(arr);
-        printKLevelsDown(root, k);
+//        BalPair bp = isBalanced(root);
+//        System.out.println(bp.isBal);
     }
-
 }
