@@ -30,7 +30,7 @@ public class Diameter {
         Node root = new Node(arr[0], null, null);
         Pair rtp = new Pair(root, 1);
 
-        Stack< Pair> st = new Stack< >();
+        Stack<Pair> st = new Stack<>();
         st.push(rtp);
 
         int idx = 0;
@@ -115,24 +115,24 @@ public class Diameter {
     }
 
     /////////////////////////////////////////////////  recursive solution /////////////////////////////////////////////////
-        public int diameterOfBinaryTree(Node root) {
-            int[] max = new int[1];
-            getMaxDepth(root, max);
-            return max[0];
+    public int diameterOfBinaryTree(Node root) {
+        int[] max = new int[1];
+        getMaxDepth(root, max);
+        return max[0];
+    }
+
+    public int getMaxDepth(Node node, int[] max) {
+        if (node == null) {
+            return 0;
         }
 
-        public int getMaxDepth(Node node, int[] max) {
-            if (node == null) {
-                return 0;
-            }
+        int maxLeftDepth = getMaxDepth(node.left, max);
+        int maxRightDepth = getMaxDepth(node.right, max);
 
-            int maxLeftDepth = getMaxDepth(node.left, max);
-            int maxRightDepth = getMaxDepth(node.right, max);
+        max[0] = Math.max(max[0], maxLeftDepth + maxRightDepth);
 
-            max[0] = Math.max(max[0], maxLeftDepth + maxRightDepth);
-
-            return 1 + Math.max(maxLeftDepth, maxRightDepth);
-        }
+        return 1 + Math.max(maxLeftDepth, maxRightDepth);
+    }
     ///////////////////////////////////////////////// /////////////////////////////////////////////////
 
     public static void main(String[] args) throws Exception {
@@ -156,20 +156,20 @@ public class Diameter {
     ///////////////////////////////////////////////// TUF /////////////////////////////////////////////////
 
     public int diameterOfBinaryTree(TreeNode root) {
-            int[] diameter = new int[1];
-            height(root, diameter);
-            return diameter[0];
-        }
+        int[] diameter = new int[1];
+        height(root, diameter);
+        return diameter[0];
+    }
 
-        private int height(TreeNode node, int[] diameter) {
-            if (node == null) {
-                return 0;
-            }
-            int lh = height(node.left, diameter);
-            int rh = height(node.right, diameter);
-            diameter[0] = Math.max(diameter[0], lh + rh);
-            return 1 + Math.max(lh, rh);
+    private int height(TreeNode node, int[] diameter) {
+        if (node == null) {
+            return 0;
         }
+        int lh = height(node.left, diameter);
+        int rh = height(node.right, diameter);
+        diameter[0] = Math.max(diameter[0], lh + rh);
+        return 1 + Math.max(lh, rh);
+    }
 
     ///////////////////////////////////////////////// /////////////////////////////////////////////////
 
