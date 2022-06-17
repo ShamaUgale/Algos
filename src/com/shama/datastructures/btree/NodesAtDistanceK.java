@@ -2,7 +2,9 @@ package com.shama.datastructures.btree;
 import java.util.*;
 
 class NodesAtDistanceK {
-    private void markParents(TreeNode root, Map<TreeNode, TreeNode> parent_track, TreeNode target) {
+
+    // this is O(N)
+    private void markParents(TreeNode root, Map<TreeNode, TreeNode> parent_track) {
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
         while(!queue.isEmpty()) {
@@ -17,17 +19,30 @@ class NodesAtDistanceK {
             }
         }
     }
+
+    // iterative approach (can be done with recursive as well)
     public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         Map<TreeNode, TreeNode> parent_track = new HashMap<>();
-        markParents(root, parent_track, root);
+
+        // map of nodes as key and all the parent as vals
+        // so if I do a get node from map i know who is the parent for this node
+        markParents(root, parent_track);
+
+        // visited so when i am moving in all directions, i dont go to the same direction again
         Map<TreeNode, Boolean> visited = new HashMap<>();
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Queue<TreeNode> queue = new LinkedList();
         queue.offer(target);
         visited.put(target, true);
+
+        // this is k counter, as soon as i reach k distance from nodes i break
         int curr_level = 0;
-        while(!queue.isEmpty()) { /*Second BFS to go upto K level from target node and using our hashtable info*/
+
+        // second BFS to go upto K level from target node and using our hashtable info
+        // O(N) is worst case
+        while(!queue.isEmpty()) {
             int size = queue.size();
-            if(curr_level == k) break;
+            if(curr_level == k)
+                break;
             curr_level++;
             for(int i=0; i<size; i++) {
                 TreeNode current = queue.poll();
