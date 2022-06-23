@@ -31,7 +31,7 @@ public class PrintKLevelDown {
         Node root = new Node(arr[0], null, null);
         Pair rtp = new Pair(root, 1);
 
-        Stack< Pair> st = new Stack< >();
+        Stack<Pair> st = new Stack<>();
         st.push(rtp);
 
         int idx = 0;
@@ -97,7 +97,7 @@ public class PrintKLevelDown {
     }
 
     public static void main(String[] args) throws Exception {
-        Integer[]arr = {50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
+        Integer[] arr = {50, 25, 12, null, null, 37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null};
 
         int k = 2;
 

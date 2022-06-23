@@ -29,7 +29,7 @@ public class PrintKEdgesAway {
     public static Node construct(Integer[] arr) {
         Node root = new Node(arr[0], null, null);
         Pair rtp = new Pair(root, 1);
-        Stack< Pair> st = new Stack< >();
+        Stack<Pair> st = new Stack<>();
         st.push(rtp);
         int idx = 0;
         while (st.size() > 0) {
@@ -77,8 +77,8 @@ public class PrintKEdgesAway {
 
     // *******************PRINT K NODES FAR******************
     public static void printKNodesFar(Node node, int data, int k) {
-         path = new ArrayList< Node>();
-         find(node, data); //1
+        path = new ArrayList<Node>();
+        find(node, data); //1
         for (int i = 0; i < path.size(); i++) { //2
             printKLevelsDown(path.get(i), k - i, i == 0 ? null : path.get(i - 1)); //3
         }
@@ -86,7 +86,8 @@ public class PrintKEdgesAway {
     }
 
     //**************** FIND FUNCTION ******************
-    static ArrayList< Node> path;
+    static ArrayList<Node> path;
+
     public static boolean find(Node node, int data) {
         if (node == null)
             return false;
@@ -106,6 +107,7 @@ public class PrintKEdgesAway {
         }
         return false;
     }
+
     //****************PRINT K LEVELS DOWN****************
     public static void printKLevelsDown(Node node, int k, Node blocker) {
         if (node == null || k < 0 || node == blocker)
@@ -116,6 +118,7 @@ public class PrintKEdgesAway {
         printKLevelsDown(node.right, k - 1, blocker);
 
     }
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
