@@ -2,21 +2,14 @@ package com.shama.datastructures.btree;
 
 public class LCA {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        //base case
-        if (root == null || root == p || root == q) {
-            return root;
+        if(root == null) return null;
+        int curr = root.val;
+        if(curr < p.val && curr < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
         }
-        TreeNode left = lowestCommonAncestor(root.left, p, q);
-        TreeNode right = lowestCommonAncestor(root.right, p, q);
-
-        //result
-        if (left == null) {
-            return right;
-        } else if (right == null) {
-            return left;
-        } else { //both left and right are not null, we found our result
-            return root;
+        if(curr > p.val && curr > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
         }
+        return root;
     }
 }
-
