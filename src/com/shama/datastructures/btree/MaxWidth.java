@@ -2,9 +2,6 @@ package com.shama.datastructures.btree;
 
 import java.util.*;
 
-
-
-
 class MaxWidth {
     static class TreeNode {
         int data;
@@ -17,11 +14,11 @@ class MaxWidth {
         }
     }
 
-    class Pair {
-        com.shama.datastructures.btree.TreeNode node;
+    static class Pair {
+        TreeNode node;
         int num;
 
-        Pair(com.shama.datastructures.btree.TreeNode _node, int _num) {
+        Pair(TreeNode _node, int _num) {
             num = _num;
             node = _node;
         }
