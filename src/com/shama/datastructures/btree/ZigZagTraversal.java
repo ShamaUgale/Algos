@@ -29,7 +29,6 @@ public class ZigZagTraversal {
             int levelNum = queue.size();
             ArrayList<Integer> subList = new ArrayList<Integer>(levelNum);
             for (int i = 0; i < levelNum; i++) {
-                int index = i;
                 if (queue.peek().left != null)
                     queue.offer(queue.peek().left);
                 if (queue.peek().right != null)
