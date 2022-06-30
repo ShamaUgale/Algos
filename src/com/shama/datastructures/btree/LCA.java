@@ -22,7 +22,8 @@ public class LCA {
     }
 
     public TreeNode lowestCommonAncestorBST(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == null) return null;
+        if(root == null)
+            return null;
         int curr = root.val;
         if(curr < p.val && curr < q.val) {
             return lowestCommonAncestorBST(root.right, p, q);

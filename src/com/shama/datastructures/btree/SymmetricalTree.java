@@ -1,5 +1,9 @@
 package com.shama.datastructures.btree;
 
+/*
+Time complexity - O(n)
+Space complexity - O(n)
+ */
 public class SymmetricalTree {
     public boolean isSymmetric(TreeNode root) {
         return root==null || isSymmetricHelp(root.left, root.right);
