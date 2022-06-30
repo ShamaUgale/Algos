@@ -19,7 +19,8 @@ public class MaxPathSum {
     }
 
     public static int maxPathDown(Node node, int maxValue[]) {
-        if (node == null) return 0;
+        if (node == null)
+            return 0;
         int left = Math.max(0, maxPathDown(node.left, maxValue));
         int right = Math.max(0, maxPathDown(node.right, maxValue));
         maxValue[0] = Math.max(maxValue[0], left + right + node.val);
