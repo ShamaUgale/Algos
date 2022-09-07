@@ -122,7 +122,5 @@ public class SameComponents {
         graph.addEgde(4, 5);
         System.out.println("Disjoint Sets: ");
         graph.disjointSets();
-
-
     }
 }

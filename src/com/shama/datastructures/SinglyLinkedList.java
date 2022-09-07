@@ -392,8 +392,5 @@ public class SinglyLinkedList {
         mergedList.head =  mergeLists(a.head,b.head);
 
         mergedList.display();
-
-
-
     }
 }

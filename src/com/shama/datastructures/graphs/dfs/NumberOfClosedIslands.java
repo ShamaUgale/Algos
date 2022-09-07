@@ -1,5 +1,24 @@
 package com.shama.datastructures.graphs.dfs;
 
+/*
+
+A closed island is known as the group of 1s that is surrounded by only 0s on all the four sides (excluding diagonals).
+If any 1 is at the edges of the given matrix then it is not considered as the part of the connected island
+as it is not surrounded by all 0.
+
+Input: N = 5, M = 8,
+mat[][] =
+{
+    {0, 0, 0, 0, 0, 0, 0, 1},
+    {0, 1, 1, 1, 1, 0, 0, 1},
+    {0, 1, 0, 1, 0, 0, 0, 1},
+    {0, 1, 1, 1, 1, 0, 1, 0},
+    {0, 0, 0, 0, 0, 0, 0, 1}
+}
+
+Output: 2
+
+ */
 public class NumberOfClosedIslands {
     public int noOfClosedIslands(int[][] grid) {
         if (grid.length == 0 || grid == null) {
